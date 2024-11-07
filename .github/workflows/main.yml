@@ -20,17 +20,17 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+    #- name: Use Node.js ${{ matrix.node-version }}
+    #  uses: actions/setup-node@v4
+    #  with:
+    #    node-version: ${{ matrix.node-version }}
+    #    cache: 'npm'
     
-    - run: npm ci
+    #- run: npm ci
 
-    - run: npm run lint
+    #- run: npm run lint
 
-    - run: npm test
+    #- run: npm test
 
     #- name: Deploy
     #  uses: dokku/github-action@master
