@@ -32,9 +32,19 @@ jobs:
 
     - run: npm test
 
-    - name: Deploy
-      uses: dokku/github-action@master
-      with:
-        git_remote_url: 'ssh://githubtst@dwert.flypgs.com.ua:52222/home/githubtst/html'
-        branch: 'main'
-        ssh_private_key: ${{ secrets.DOKKU_KEY }}
+    #- name: Deploy
+    #  uses: dokku/github-action@master
+    #  with:
+    #    git_remote_url: 'ssh://githubtst@dwert.flypgs.com.ua:52222/home/githubtst/html'
+    #    branch: 'main'
+    #    ssh_private_key: ${{ secrets.DOKKU_KEY }}
+    - name: deploy to server
+      uses: saranraj3195/sparkout-deployment@v2
+      env:
+        DEPLOY_KEY: ${{ secrets.DOKKU_KEY }}
+        ARGS: "-avz --delete"
+        SERVER_PORT: ${{ secrets.SERVER_PORT }}
+        FOLDER: "src/*"
+        SERVER_IP: ${{ secrets.SERVER_IP }}
+        USERNAME: ${{ secrets.USERNAME }}
+        SERVER_DESTINATION: ${{ secrets.SERVER_DESTINATION }}     
