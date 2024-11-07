@@ -35,6 +35,6 @@ jobs:
     - name: Deploy
       uses: dokku/github-action@master
       with:
-        git_remote_url: 'ssh://githubtst@dwert.flypgs.com.ua:52222/html'
+        git_remote_url: 'ssh://githubtst@dwert.flypgs.com.ua:52222/home/githubtst/html'
         branch: 'main'
         ssh_private_key: ${{ secrets.DOKKU_KEY }}
